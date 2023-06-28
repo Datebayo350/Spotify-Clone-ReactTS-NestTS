@@ -1,5 +1,6 @@
 import { Card } from 'primereact/card';
 import { Image } from 'primereact/image';
+import { DataView, DataViewLayoutOptions  } from 'primereact/dataview';
 
 function Album({ album }: any) {
     

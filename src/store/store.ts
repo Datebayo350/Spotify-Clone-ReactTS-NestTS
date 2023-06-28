@@ -14,9 +14,10 @@ const tokenSlice = createSlice({
 });
 
 export const store =  configureStore({
-    reducer: {
-        token: tokenSlice.reducer
-    }
+  reducer: {
+    token: tokenSlice.reducer
+  },
+  devTools: true,
 })
 
 export type RootState = ReturnType<typeof store.getState>

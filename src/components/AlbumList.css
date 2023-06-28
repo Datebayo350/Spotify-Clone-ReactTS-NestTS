@@ -1,5 +1,23 @@
 .albums {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap-reverse
+    flex-wrap: wrap-reverse;
+    background-color: green;
+    justify-content: center;
 }
+
+.albumsBis > div > :nth-child(1) > :nth-child(1) {
+    width: 100% !important;
+    padding: auto;
+    margin: 50px;
+    background-color: yellow !important;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+
+/* .p-dataview {
+    background-color: pink;
+    width: 1000px;
+    height: 1000px;
+} */

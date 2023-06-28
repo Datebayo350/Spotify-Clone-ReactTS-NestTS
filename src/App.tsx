@@ -6,6 +6,7 @@ import { RootState, selectToken } from './store/store';
 import { updateToken } from "./store/store";
 import { InputText } from 'primereact/inputtext';
 import AlbumList from './components/AlbumList';
+import AlbumListBis from './components/AlbumListBis';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
 function App() {
@@ -80,7 +81,7 @@ function App() {
           </span>
           <Button style={{margin: '5px'}} label="Go !" className="p-button-success" aria-label="Search" onClick={searchAlbum}/>
         </div>
-        <AlbumList albums={albumsList}></AlbumList>
+        <AlbumListBis albums={albumsList}></AlbumListBis>
       </div>
     )
   }
