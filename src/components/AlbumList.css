@@ -6,18 +6,21 @@
     justify-content: center;
 }
 
-.albumsBis > div > :nth-child(1) > :nth-child(1) {
-    width: 100% !important;
-    padding: auto;
-    margin: 50px;
-    background-color: yellow !important;
-    /* display: flex;
-    justify-content: space-between; */
+/* Cards container*/
+.albumsBis .p-grid {
+    width: 80%;
+    margin-top: 2rem ;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 50px 50px; 
 }
 
-
-/* .p-dataview {
-    background-color: pink;
-    width: 1000px;
-    height: 1000px;
-} */
+/* Paginator container */
+.p-paginator {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center
+}
