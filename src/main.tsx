@@ -4,9 +4,10 @@ import App from './App'
 import Callback from './Callback'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { store } from './store/store'
+import { store } from './__store/store'
 import { Provider } from 'react-redux'
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import '../..//front/node_modules/primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
 
 const router = createBrowserRouter([

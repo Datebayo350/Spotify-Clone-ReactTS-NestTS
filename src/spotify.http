@@ -1,0 +1,3 @@
+// Détails de l'album SOIXANTE3 - Je récu^ère biens les douzes titres
+GET https://api.spotify.com/v1/albums/5seld0Ici77hWX1wipfuU0/tracks
+Authorization: "Bearer BQCGwetsT78cTNbtE1wLR-ZslvHvgQt8Pg1cLn-5fTOp47BS1yQsuytKxFVK7-I38wI4AZzhEsQccjd6WU8FHWQ3Qk8ZIF_Ffy8J22bZwyiZVF2SAnBJQwZ0sfGv-LCY2i9lbLHlwjXXJZhLpPuNA4o2OHEi3hRtL_8wy8S36J05VXRuvWnaP3nOrUaCNJ0ZmKF3uAOhN04Nov861DY"

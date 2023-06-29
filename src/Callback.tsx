@@ -1,14 +1,11 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { updateToken } from "./store/store";
-
 function Callback() {
-    const dispatch = useDispatch();
-
-    const updateTokenSpotify = () => {
-        const token = window.location.hash.substr(1).split("&")[0].split("=")[1];
-        window.opener.spotifyCallback(token);
-        return 'update token';
+    console.log('callBack appellée');
+    const updateTokenSpotify  = () => {
+        console.log("Token update initié depuis la CallBack");
+        const userToken = window.location.hash.substring(1).split("&")[0].split("=")[1];
+        console.log('userToken :>> ', userToken);
+        window.opener.spotifyCallback(userToken);
+        return 'update user token from callBack';
     };
 
     return (
