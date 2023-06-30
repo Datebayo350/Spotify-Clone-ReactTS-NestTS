@@ -7,7 +7,7 @@ export const artistSlice = createSlice({
         },
         reducers: {
             getAlbums: (state: {[key:string]: any}, action: PayloadAction<string>) => {
-                state.value = action.payload
+                state.value = {albums: action.payload}
             }
         }
 })

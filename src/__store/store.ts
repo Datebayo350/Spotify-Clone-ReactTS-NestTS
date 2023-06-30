@@ -1,10 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { userSpotifySlice } from '../__slices/userSpotifySlice'
+
+import { userSlice } from '../__slices/userSlice'
 import { artistSlice } from '../__slices/artistSlice'
+import { configureStore } from '@reduxjs/toolkit'
 
 export const store =  configureStore({
   reducer: {
-    userSpotify: userSpotifySlice.reducer,
+    user: userSlice.reducer,
     artistAlbums: artistSlice.reducer
   },
   devTools: true,
@@ -12,7 +13,7 @@ export const store =  configureStore({
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
-export const { uptadeUserToken } = userSpotifySlice.actions
+export const { updateSpotifyToken } = userSlice.actions
 export const { getAlbums } = artistSlice.actions
-export const selectuserSpotifyToken = (state: any) => state.userSpotifyToken?.token
-export default userSpotifySlice.reducer;
+export const selectuserSpotifyToken = (state: any) => state.user?.spotifyToken
+export default userSlice.reducer;

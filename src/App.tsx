@@ -8,11 +8,14 @@ import { InputText } from 'primereact/inputtext';
 import AlbumList from './components/AlbumList';
 import AlbumListBis from './components/AlbumListBis';
 import axios, { AxiosError, AxiosResponse } from 'axios';
-import { redirect } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 function App() {
+  const navigate = useNavigate();
   const userSpotifyToken = useSelector(selectuserSpotifyToken);
+  const localStorageToken = localStorage.userSpotifyToken;
   console.log('userSpotifyToken :>> ', userSpotifyToken);
+  console.log('localStorageToken :>> ', localStorageToken);
   const dispatch = useDispatch();
   const [albumsList, setAlbumsList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -65,25 +68,20 @@ function App() {
     const disconnect = () => {
       dispatch(uptadeUserToken(''));
       localStorage.removeItem('userSpotifyToken');
-      redirect('/');
+      // redirect('/');
     }
     
     useEffect(() =>{
-      console.log('localStorage mis à jour :>> ', localStorage['userSpotifyToken'],userSpotifyToken);
-      redirect('/');
-    },userSpotifyToken)
+      console.log('localStorage mis à jour :>> ', localStorageToken);
+    },[localStorageToken])
 
-  if (localStorage['userSpotifyToken'] === undefined || localStorage['userSpotifyToken'].length <= 0) {
-    return (
-      <div className="content">
-      <Button label="Se connecter à spotify" onClick={connect}/>
-    </div>
-    )
-  }
-  else {
+  if (localStorageToken != undefined) {
     return (    
       <div className="content">
-        <Button label="Se déconnecter" className="p-button-danger" onClick={disconnect}/>
+        <Button label="Se déconnecter" className="p-button-danger" onClick={() => {
+            disconnect();
+            navigate('/');
+          }}/>
         <div className="recherche">
           <h2>Cherher un album</h2>
           <span className="p-input-icon-left">
@@ -93,6 +91,15 @@ function App() {
         </div>
         <AlbumListBis albums={albumsList}></AlbumListBis>
       </div>
+    )
+  }
+  else if (localStorageToken === undefined) {
+    return (
+      <div className="content">
+      <Button label="Se connecter à spotify" onClick={() => {
+        connect();
+      }}/>
+    </div>
     )
   }
 }
