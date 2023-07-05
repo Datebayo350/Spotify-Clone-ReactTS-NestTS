@@ -1,5 +1,9 @@
 #root {
   display: flex;
+  background: linear-gradient(to bottom, #daf1e3, #11978e) !important; 
+  /* background: -webkit-linear-gradient(to left, #c2e9d1, #17726a);  
+  background: linear-gradient(to bottom, #c3f5d6, #11998e); 
+ */
 }
 
 .top-menu {
@@ -25,9 +29,11 @@
   padding: 1.5em;
   will-change: filter;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -47,10 +53,27 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
+.spotify-button {
+  color: #063015;
+  background-color: #1FDF64;
+  border-radius: 2rem;
+  margin-top: 0.8rem;
+  transition: all 500ms ease-out;
 
-.read-the-docs {
-  color: #888;
+}
+.spotify-button:hover {
+  color: white !important;
+  background-color: #1FDF60 !important;
+  border-color: #1FDF64 !important;
+
+}
+@media (min-width: 768px) { 
+  .spotify-button:hover {
+    color: white !important;
+    background-color: #1FDF60 !important;
+    border-color: #1FDF64 !important;
+    height: 7%;
+    width: 462px;
+  
+  }
 }
