@@ -1,6 +1,6 @@
 #root {
   display: flex;
-  background: linear-gradient(to bottom, #daf1e3, #11978e) !important; 
+  background: linear-gradient(to bottom, #daf1e3, #11978e); 
   /* background: -webkit-linear-gradient(to left, #c2e9d1, #17726a);  
   background: linear-gradient(to bottom, #c3f5d6, #11998e); 
  */
@@ -54,8 +54,8 @@
 }
 
 .spotify-button {
-  color: #063015;
-  background-color: #1FDF64;
+  color: #063015 !important;
+  background-color: #1FDF64 !important;
   border-radius: 2rem;
   margin-top: 0.8rem;
   transition: all 500ms ease-out;
@@ -74,6 +74,5 @@
     border-color: #1FDF64 !important;
     height: 7%;
     width: 462px;
-  
   }
 }
