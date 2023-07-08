@@ -1,14 +1,14 @@
 import { useSelector } from 'react-redux'
+import { selectUserState } from '../__store/store';
 
-export type isAtuhType = {
-    loggedIn: boolean,
-    userSportifyToken?: string
-}
+// export type UseAuthType = Omit<RootState['user']['value'], 'value'>;
 
-const useAuth = (): any => {
-    const userState = useSelector( (state: any) => state.user.value);
-    console.log('userState :>> ', userState);
-    return userState.spotifyToken !== undefined ?  {loggedIn:true, userState} : {loggedIn:false};
+const useAuth = () => {
+    
+    const userState = useSelector(selectUserState );
+    
+    return userState.spotifyAccessToken.length > 0 && userState.userLoggedIn ? true : false ;
+
 }
 
 export default useAuth;

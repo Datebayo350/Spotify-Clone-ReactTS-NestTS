@@ -1,6 +1,6 @@
-import useAuth from './hooks/useAuth';
+import useAuth from '../hooks/useAuth';
 import { Navigate } from 'react-router-dom';
-import HeaderAndPrivateRoutes from './components/Header';
+import HeaderAndPrivateRoutes from './Header';
 const Authentication = () => {
     const userAuthenticated = true ;
     const userAuthentication = useAuth();
