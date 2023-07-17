@@ -1,5 +1,4 @@
 import './index.css'
-import './App.css'
 
 import 'primeicons/primeicons.css';
 import '../..//front/node_modules/primeflex/primeflex.css';
