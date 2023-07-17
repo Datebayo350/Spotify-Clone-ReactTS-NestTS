@@ -19,7 +19,6 @@ const Header = () => {
     const {windowWidth, windowHeight} = useWindowSizes(window.innerHeight, window.innerWidth)
     const dispatch = useDispatch();
     const userState= useSelector(selectUserState);
-    const isAuthtenticated = useAuth();
     const [searchTerm, setSearchTerm] = useState("");
  
     const navLinks = [
@@ -69,16 +68,15 @@ const Header = () => {
 
     return (
 
-        <header className='  bg-red-500 h-5rem
-         
-            md:header-layout   '>
+        <header className='h-5rem
+            md:header-layout'>
             
-            <nav className='w-full h-full  bg-black-alpha-70
+            <nav className='w-full h-full  bg-red-500
             flex justify-content-evenly align-items-center'>
                 
-                {navLinks.map( navItem => {
+                {navLinks.map( (navItem, index) => {
                   return(
-                    <NavLink to={navItem.path} className='text-white flex flex-column align-items-center'> 
+                    <NavLink key={index} to={navItem.path} className='text-white flex flex-column align-items-center'> 
                         <i className={`${navItem.iconClass} text-3xl max-w-min inline`}></i>
                         <span className='mt-1'>{navItem.label}</span> 
                     </NavLink>
@@ -87,7 +85,7 @@ const Header = () => {
             
             </nav>
 
-            { windowWidth > 768 &&
+            {/* { windowWidth > 768 &&
                 <>
                     <div className='searchContainer bg-pink-600'>
                         <Button style={{margin: '5px'}} label="Go !" className="p-button-success" aria-label="Search" onClick={searchAlbum}/>
@@ -96,7 +94,7 @@ const Header = () => {
 
                     <button className='pi pi-chevron-circle-down text-2xl p-0' onClick={disconnect}></button>
                 </>
-            }
+            } */}
 
         </header>
         

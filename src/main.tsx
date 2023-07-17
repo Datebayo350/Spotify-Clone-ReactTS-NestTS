@@ -15,7 +15,6 @@ import { Provider } from 'react-redux'
 import LoginProcessing from './pages/public/LoginProcessing/LoginProcessing'
 import Home from './pages/private/Home/Home';
 import Login from './pages/public/Login/Login'
-import Authentication from './components/Authentication'
 import LikedTracks from './pages/private/LikedTracks/LikedTracks';
 import CollectionsTracks from './pages/private/CollectionTracks/CollectionsTracks';
 import AlbumListBis from './pages/private/AlbumsList/AlbumListBis';

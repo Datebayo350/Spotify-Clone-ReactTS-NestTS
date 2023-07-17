@@ -1,0 +1,39 @@
+.login-page {
+    display: flex;
+    background: linear-gradient(to bottom, #daf1e3, #11978e) !important; 
+}
+/* My Styles */
+.spotify-button {
+    color: #063015 !important;
+    background-color: #1FDF64 !important;
+    border-radius: 2rem;
+    margin-top: 0.8rem;
+    transition: all 500ms ease-out;
+  
+};
+  
+.spotify-button:hover {
+color: white !important;
+background-color: #1FDF60 !important;
+border-color: #1FDF64 !important;
+
+};
+
+.md\:layout-body-content {
+background-color: rgba(0,0,0,0.7) !important;
+};
+
+@media (min-width: 768px) { 
+.spotify-button:hover {
+    color: white !important;
+    background-color: #1FDF60 !important;
+    border-color: #1FDF64 !important;
+    height: 7%;
+    width: 462px;
+};
+
+/* .md\:layout-body-content {
+    background-color: rgba(0,0,0,0.7) !important;
+}; */
+
+};
