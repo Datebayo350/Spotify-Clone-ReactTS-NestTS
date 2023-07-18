@@ -16,3 +16,4 @@ export type AppDispatch = typeof store.dispatch
 
 export const selectUserState = (state: RootState) =>  state.user.value;
 export const selectArtistState = (state: RootState) => state.artist.value;
+

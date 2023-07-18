@@ -41,7 +41,7 @@ const router = createBrowserRouter(
       </Route>
 
       <Route element={<UnAuthenticatedRoutes userIsLoggedIn={useAuth}/>}>
-        //? Possibility to load some data befor rendering the component see how to use loader : https://reactrouter.com/en/main/route/route#route
+        //? Possibility to load some data before rendering the component see how to use loader : https://reactrouter.com/en/main/route/route#route
           <Route path="/connexion" element={<Login/>}/> 
           <Route path="/traitement-connexion" element={<LoginProcessing/>}/>
       </Route> 

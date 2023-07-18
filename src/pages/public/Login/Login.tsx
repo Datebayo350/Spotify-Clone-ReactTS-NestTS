@@ -1,4 +1,4 @@
-import { redirect, useFetcher } from 'react-router-dom';
+import { redirect, useFetcher, useNavigate } from 'react-router-dom';
 import { spotifyLoginAndAuthorization } from '../../../__slices/user';
 import { Button } from 'primereact/button';
 import { useDispatch} from 'react-redux';
@@ -11,7 +11,7 @@ const Login = () => {
 
   const fetcher = useFetcher();
   const dispatch = useDispatch();
-
+  
   const spotifyIcon = () => {
     return (
       <img className="max-h-2rem
@@ -45,8 +45,9 @@ const Login = () => {
 
   const  spotifyLogin = async () => {
 
-    // location.href=`https://accounts.spotify.com/fr/authorize?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}&state=${spotify_state}&show_dialog=${show_dialog}`;
-    // redirect(`https://accounts.spotify.com/fr/authorize?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}&state=${spotify_state}&show_dialog=${show_dialog}`);
+    location.href=`https://accounts.spotify.com/fr/authorize?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}&state=${spotify_state}&show_dialog=${show_dialog}`;
+    
+    // navigate(`https://accounts.spotify.com/fr/authorize?client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}&state=${spotify_state}&show_dialog=${show_dialog}`);
   };
 
 

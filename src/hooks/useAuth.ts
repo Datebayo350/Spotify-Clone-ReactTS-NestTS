@@ -8,7 +8,7 @@ const useAuth = () => {
     const userState = useAppSelector(selectUserState);
     
     // return userState.spotifyAccessToken.length > 0 && userState.userLoggedIn ? true : false ;
-    return true
+    return false
 
 }
 
