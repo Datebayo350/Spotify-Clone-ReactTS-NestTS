@@ -4,6 +4,7 @@ export const apiSlice = createApi({
     reducerPath: 'backendApi',
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://localhost:8080',
+        credentials:'include',
     }),
     endpoints: builder => ({
         spotifyRefreshAccessToken: builder.query({
