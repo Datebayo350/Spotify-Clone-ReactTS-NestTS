@@ -7,12 +7,11 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import useAuth from '../../hooks/useAuth';
-import { spotifyAccessTokenUpdate } from '../../__slices/user';
-import { getAlbums } from '../../__slices/artist';
 import { selectUserState } from '../../__store/store';
 import useWindowSizes from '../../hooks/useWindowSize';
 
 import './Header.css'
+import { logOut } from '../../__slices/user';
 
 const Header = () => {
 
@@ -45,7 +44,7 @@ const Header = () => {
     ];
 
     const disconnect = () => {
-        dispatch(spotifyAccessTokenUpdate(''));
+        dispatch(logOut())
     };
 
     const searchAlbum = async () => {
@@ -63,7 +62,7 @@ const Header = () => {
             "Content-Type": "application/json",
         },
         });
-        dispatch(getAlbums(result.data.albums.items));
+        // dispatch(getAlbums(result.data.albums.items));
     };
 
     return (
