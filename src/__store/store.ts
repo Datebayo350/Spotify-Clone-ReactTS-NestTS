@@ -15,7 +15,7 @@ export const store =  configureStore({
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
-export const selectUserState = (state: RootState) =>  state.user.value;
+export const selectUserState = (state: RootState) =>  state.user;
 export const selectArtistState = (state: RootState) => state.artist.value;
 export const selectBackendApiState = (state: RootState) => state.backendApi;
 
