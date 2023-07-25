@@ -1,20 +1,14 @@
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import Header from '../custom-components/Header/Header';
-import { useEffect } from 'react';
 import { AuthenticationProps } from '../main';
 import './components.css'
 
-const AuthenticatedRoutes = ( {userIsLoggedIn}:AuthenticationProps ) : JSX.Element => {
+const AuthenticatedRoutes = ( {userIsAuthenticated}:AuthenticationProps ) : JSX.Element => {
     
-    const authenticated = userIsLoggedIn();
-    const navigate = useNavigate();
+    const location = useLocation();
+    const authenticated = userIsAuthenticated();
 
-    useEffect( () => {
-        !authenticated && navigate('/connexion')
-
-    },[authenticated])
-
-    return (   
+    return ( authenticated ?  
         <div className="h-screen w-full bg-black-alpha-90
         flex flex-column-reverse justify-content-between
         bg-diff
@@ -26,6 +20,7 @@ const AuthenticatedRoutes = ( {userIsLoggedIn}:AuthenticationProps ) : JSX.Eleme
             </main>
 
         </div>
+        : <Navigate to='/connexion' state={{from: location}} replace/>
     );
 
     
