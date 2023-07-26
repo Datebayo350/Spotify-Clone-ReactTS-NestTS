@@ -1,12 +1,9 @@
-const CollectionsTracks = () => { 
-
-    return (
-
-        <>
-            <h1> Bibliothèque </h1>
-
-        </>
-    ) 
-}; 
+const CollectionsTracks = () => {
+  return (
+    <>
+      <h1> Bibliothèque </h1>
+    </>
+  );
+};
 
 export default CollectionsTracks;
