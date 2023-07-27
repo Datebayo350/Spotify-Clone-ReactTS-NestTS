@@ -6,6 +6,7 @@ import { Button } from 'primereact/button';
 import { useSpotifyLoginQuery } from '../../../__slices/authApi';
 
 const Login = () => {
+  console.log("test for workflow functionment");
   const spotifyIcon = () => {
     return (
       <img
