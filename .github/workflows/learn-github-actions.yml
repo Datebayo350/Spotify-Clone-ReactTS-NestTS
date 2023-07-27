@@ -6,5 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: yarn lin:fix
+      - run: yarn install
+      # - run: yarn lint:fix
       - run: yarn prettier:format
