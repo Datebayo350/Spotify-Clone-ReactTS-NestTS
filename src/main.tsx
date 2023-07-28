@@ -2,7 +2,7 @@ import './index.css';
 
 import 'primeicons/primeicons.css';
 import 'primereact/resources/primereact.css';
-import '../..//front/node_modules/primeflex/primeflex.css';
+import 'primeflex/primeflex.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 
 import React from 'react';
