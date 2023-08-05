@@ -1,0 +1,131 @@
+/*
+** @See the following ressources for the rules configuration :
+**  - ESLint "Configure Rules" page : https://eslint.org/docs/latest/use/configure/rules
+**  - ESLint "Rules Reference" page : https://eslint.org/docs/latest/rules/
+**  - Prettier "Configuration Rules" page : https://prettier.io/docs/en/configuration.html 
+**  - Prettier "Rules Reference" page : https://prettier.io/docs/en/options.html 
+**  - Typescript-eslint "Rules Overview" : https://typescript-eslint.io/rules/
+**  - Github : "airbnb / javascript" repository : https://github.com/airbnb/javascript#strings
+**  - Github : "iamturns / eslint-config-airbnb-typescript" : https://github.com/iamturns/eslint-config-airbnb-typescript
+**  - Github : "import-js / eslint-import-resolver-typescript" : https://github.com/import-js/eslint-import-resolver-typescript
+**  - Github : "jsx-eslint / eslint-plugin-react" : https://github.com/jsx-eslint/eslint-plugin-react
+**  - Github : "typescript-eslint / typescript-eslint" : https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules
+**  - Github : "prettier / eslint-config-prettier" : https://github.com/prettier/eslint-config-prettier#readme
+
+
+========================================================================    ERRORS ENCOUNTERED : Fixes  ============================================================================
+
+ - Warning: React version not specified in 'eslint-plugin-react settings' : 
+    -https://stackoverflow.com/questions/72780296/warning-react-version-not-specified-in-eslint-plugin-react-settings-while-run 
+    - https://github.com/jsx-eslint/eslint-plugin-react/blob/master/README.md#configuration
+
+========================================================================    ERRORS ENCOUNTERED : Fixes  ============================================================================
+
+
+========================================================================    MAIN DIFFERENCES BETWEEN STYLES  ========================================================================
+
+- differences between "eslint-config-airbnb-typescript" and "eslint-config-standard-with-typescript" conventions :
+    - https://www.reddit.com/r/typescript/comments/gney1v/eslint_what_are_the_main_differences_between/
+    - https://standardjs.com/rules.html
+    - https://airbnb.io/javascript/
+    
+========================================================================    MAIN DIFFERENCE BETWEEN STYLES  ========================================================================
+
+*/
+
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:import/recommended",
+        "airbnb-typescript",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+         "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module",
+        "project": true
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "no-var": "error",
+        "prefer-const": ["error", {
+            "destructuring": "any",
+            "ignoreReadBeforeAssign": true
+        }]
+        // "key-spacing": "error",
+        // "curly": ["error", "all"],
+        // "no-mixed-operators": "error",
+        // "vue/html-self-closing": ["error",
+        //     {
+        //         "html": {
+        //             "void": "any"
+        //         }
+        //     }
+        // ]
+        // "lines-around-comment": [ 
+        //     "error",
+        //     {
+        //         "beforeBlockComment": true,
+        //         "afterBlockComment": true,
+        //         "beforeLineComment": true,
+        //         "afterLineComment": true,
+        //         "allowBlockStart": true,
+        //         "allowBlockEnd": true,
+        //         "allowObjectStart": true,
+        //         "allowObjectEnd": true,
+        //         "allowArrayStart": true,
+        //         "allowArrayEnd": true
+        //     }
+        // ]
+    },
+    "settings": {
+    "react": {
+      "createClass": "createReactClass", // Regex for Component Factory to use,
+                                         // default to "createReactClass"
+      "pragma": "React",  // Pragma to use, default to "React"
+      "fragment": "Fragment",  // Fragment to use (may be a property of <pragma>), default to "Fragment"
+      "version": "detect", // React version. "detect" automatically picks the version you have installed.
+                           // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
+                           // It will default to "latest" and warn if missing, and to "detect" in the future
+      "flowVersion": "0.53" // Flow version
+    },
+    "propWrapperFunctions": [
+        // The names of any function used to wrap propTypes, e.g. `forbidExtraProps`. If this isn't set, any propTypes wrapped in a function will be skipped.
+        "forbidExtraProps",
+        {"property": "freeze", "object": "Object"},
+        {"property": "myFavoriteWrapper"},
+        // for rules that check exact prop wrappers
+        {"property": "forbidExtraProps", "exact": true}
+    ],
+    "componentWrapperFunctions": [
+        // The name of any function used to wrap components, e.g. Mobx `observer` function. If this isn't set, components wrapped by these functions will be skipped.
+        "observer", // `property`
+        {"property": "styled"}, // `object` is optional
+        {"property": "observer", "object": "Mobx"},
+        {"property": "observer", "object": "<pragma>"} // sets `object` to whatever value `settings.react.pragma` is set to
+    ],
+    "formComponents": [
+      // Components used as alternatives to <form> for forms, eg. <Form endpoint={ url } />
+      "CustomForm",
+      {"name": "Form", "formAttribute": "endpoint"}
+    ],
+    "linkComponents": [
+      // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
+      "Hyperlink",
+      {"name": "Link", "linkAttribute": "to"}
+    ]
+  }
+}
+

@@ -1,0 +1,18 @@
+services:
+  # Container front
+  front:
+    # Indicate to Docker Compose to build the image from the mentionned directory
+    build: .
+    # bind the machine port ( left ) to the exposed docker port ( right )
+    ports:
+      - '3000:3000'
+    # bind the machine folder ( left ) to the exposed docker folder ( right ) to track changes in development mode
+    volumes:
+      - ./src:/app/src
+  
+  # Container back
+  back:
+    # Indicate to Docker Compose to build the image from an Docker HUB situeted repository
+    image: 'datebayo350/personal-projects:onepoint-spotify-back'
+    ports:
+      - '8080:8080'
