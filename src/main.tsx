@@ -1,7 +1,6 @@
 import './index.css';
 
 import 'primeicons/primeicons.css';
-import 'primereact/resources/primereact.css';
 import 'primeflex/primeflex.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 
@@ -46,7 +45,6 @@ const router = createBrowserRouter(
         <Route path="/favoris" element={<LikedTracks />} />
         <Route path="/bibliotheque" element={<CollectionsTracks />} />
       </Route>
-
       <Route element={<AuthenticationRoutes userIsAuthenticated={useAuth} />}>
         <Route path="/connexion" element={<Login />} />
         <Route path="/traitement-connexion" element={<LoginProcessing />} />

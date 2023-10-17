@@ -1,3 +1,54 @@
-.bg-diff {
-  background-color: red;
+body {
+  overflow: hidden;
+}
+
+main {
+  margin: auto;
+  width: 95%;
+  /* Select the scrollbar (Firefox) */
+  scrollbar-color: #5a5a5a transparent;
+}
+
+/*Select the scrollbar (Edge, Chrome) */
+main::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+/* Select the lift of the scrollbar (Edge, Chrome) */
+main::-webkit-scrollbar-thumb {
+  background-color: #5a5a5a;
+}
+
+/*Select the scroll lift */
+/* main::-webkit-scrollbar-thumb {
+  color: #5a5a5a;
+} */
+
+.footer-layout {
+  position: absolute;
+  bottom: 5.8%;
+  background-color: green;
+}
+
+.content-layout {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #121212;
+}
+
+.main-layout-navExpended {
+  /* margin: auto !important;
+  width: 58.3333% !important; */
+
+  margin-left: 17% !important;
+  width: 58.3333% !important;
+}
+
+@media screen and (min-width: 992px) {
+  .footer-layout {
+    position: static;
+
+  }
 }

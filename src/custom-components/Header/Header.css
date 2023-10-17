@@ -1,10 +1,7 @@
-@media screen and (min-width: 768px) {
-  .md\:header-layout {
-    background-color: blue !important;
-    /* rotate: -90deg; */
+@media screen and (min-width: 992px) {
+  .header-layout {
+    margin-left: 17% !important;
+    width: 58.3333% !important;
   }
 
-  .md\:main-layout {
-    /* flex-direction: column; */
-  }
 }
