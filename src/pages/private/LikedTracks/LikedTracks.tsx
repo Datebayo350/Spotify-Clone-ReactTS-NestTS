@@ -1,7 +1,7 @@
 const LikedTracks = () => {
   return (
     <>
-      <h1>Liked Tracks</h1>
+      <h1>Titres Likés</h1>
     </>
   );
 };

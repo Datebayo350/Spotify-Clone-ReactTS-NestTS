@@ -9,7 +9,8 @@ export default defineConfig({
     host: true,
     port: 3000,
     hmr: {
-      host: '0.0.0.0',
+      // host: '0.0.0.0', <- doesn't work on dev mode
+      host: 'localhost',
       clientPort: 3000,
     },
     //  watch property options and their descriptions : https://github.com/paulmillr/chokidar#api
