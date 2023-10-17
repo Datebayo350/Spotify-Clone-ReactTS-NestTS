@@ -1,24 +1,35 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import { useSelector} from 'react-redux';
+
 import Header from '../custom-components/Header/Header';
 import { AuthenticationProps } from '../main';
 import './components.css';
+import useWindowSizes from '../hooks/useWindowSize';
+
+import { selectNavbarExpended } from '../__slices/ui';
+import TrackPlayer from '../custom-components/TrackPlayer/TrackPlayer';
 
 const AuthenticatedRoutes = ({ userIsAuthenticated }: AuthenticationProps): JSX.Element => {
   const location = useLocation();
   const authenticated = userIsAuthenticated();
+  const { windowWidth } = useWindowSizes();
 
+  const navBarExpended = useSelector(selectNavbarExpended);
   return authenticated ? (
-    <div
-      className="h-screen w-full bg-black-alpha-90
-        flex flex-column-reverse justify-content-between
-        bg-diff
-        ">
+    <div className="relative content-layout bg-green-500">
       <Header />
       <main
-        className="bg-orange-500 h-full w-11 m-auto
-            flex">
+        className={`bg-red-500 p-1 
+        lg:w-11
+        ${windowWidth >= 992 && navBarExpended ? 'main-layout-navExpended' : ''} 
+        h-screen overflow-auto  border-round-bottom-lg`}>
         <Outlet />
       </main>
+      <footer
+        className="w-full m-auto footer-layout overflow-y-hidden overflow-x-hidden
+      ">
+        <TrackPlayer />
+      </footer>
     </div>
   ) : (
     <Navigate to="/connexion" state={{ from: location }} replace />
