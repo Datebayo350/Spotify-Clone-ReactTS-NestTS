@@ -1,19 +1,16 @@
 import { useState } from 'react';
 
 export const useWindowSizes = (
-  windowH: number,
-  windowW: number
 ): { windowWidth: number; windowHeight: number } => {
-  const [windowHeight, setWindowHeight] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const updateWindowSizes = () => {
-    setWindowWidth(windowW);
-    setWindowHeight(windowH);
+    setWindowWidth(window.innerWidth);
+    setWindowHeight(window.innerHeight);
   };
 
-  window.onresize = updateWindowSizes;
-
+  window.addEventListener('resize', updateWindowSizes);
   return { windowWidth, windowHeight };
 };
 
