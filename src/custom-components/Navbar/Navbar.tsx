@@ -3,11 +3,18 @@ import { resizeNavbar, selectNavbarExpended } from '../../__slices/ui';
 
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
-import './navbar.css';
 import axios, { AxiosResponse } from 'axios';
 
+import { Image } from 'primereact/image';
+
+import './navbar.css';
+import SpotifyHomeIcon from '../../assets/spotify-home-icon.png';
+import SpotifyHomeIconActive from '../../assets/spotify-home-icon_active.png';
+import SpotifySearchIcon from '../../assets/spotify-search-icon.png';
+import SpotifySearchIconActive from '../../assets/spotify-search-icon_active.png';
+import SpotifyLibraryIcon from '../../assets/spotify-library-icon.png';
+import SpotifyLibraryIconActive from '../../assets/spotify-library-icon_active.png';
 const Navbar = () => {
   // const { windowWidth } = useWindowSizes(window.innerHeight, window.innerWidth);
   const { windowWidth } = useWindowSizes();
@@ -18,21 +25,28 @@ const Navbar = () => {
       path: '/',
       iconClass: 'pi pi-home',
       label: 'Accueil',
+      icon: SpotifyHomeIcon,
+      activeIcon: SpotifyHomeIconActive,
     },
     {
       path: '/recherche-albums',
       iconClass: 'pi pi-search',
       label: 'Recherche',
+      icon: SpotifySearchIcon,
+      activeIcon: SpotifySearchIconActive,
     },
     {
       path: '/bibliotheque',
       iconClass: 'pi pi-th-large',
       label: 'Bibliothèque',
+      icon: SpotifyLibraryIcon,
+      activeIcon: SpotifyLibraryIconActive,
     },
     {
       path: '/favoris',
       iconClass: 'pi pi-heart',
       label: 'Favoris',
+      activeIcon: 'pi pi-heart-fill',
     },
   ];
 
@@ -46,13 +60,13 @@ const Navbar = () => {
       },
       url: 'https://api.spotify.com/v1/search',
       headers: {
-          _Authorization: `Bearer ${userState.spotifyAccessToken}`,
-          get Authorization() {
-              return this._Authorization;
-          },
-          set Authorization(value) {
-              this._Authorization = value;
-          },
+        _Authorization: `Bearer ${userState.spotifyAccessToken}`,
+        get Authorization() {
+          return this._Authorization;
+        },
+        set Authorization(value) {
+          this._Authorization = value;
+        },
         'Content-Type': 'application/json',
       },
     });
@@ -60,6 +74,7 @@ const Navbar = () => {
   };
 
   //? Albumsearch
+
   {
     /* { windowWidth > 768 &&
                 <>
@@ -84,26 +99,44 @@ const Navbar = () => {
           <NavLink
             key={index}
             to={navItem.path}
-            className={`navlink flex align-items-center text-400
+            end
+            className={`navlink text-400 flex align-items-center bg-blue-500
             ${
               windowWidth >= 992 && navBarExpended
-                ? 'flex-row justify-content-start'
-                : 'flex-column'
+                ? 'flex-row'
+                : 'flex-column justify-content-between'
             } `}>
-            <i
-              className={`${navItem.iconClass} ${
-                navBarExpended ? 'w-1' : ''
-              } text-2xl max-w-min  inline`}></i>
-
-            {windowWidth >= 992 ? (
-              <span
-                hidden={!navBarExpended && windowWidth >= 992 ? true : false}
-                className="text-sm  ml-3 font-bold">
-                {navItem.label}
-              </span>
-            ) : (
-              <span className="text-sm bg-yellow-800">{navItem.label}</span>
-            )}
+            {({ isActive }) => {
+              return (
+                <>
+                  {navItem.label != 'Favoris' ? (
+                    <Image
+                      width="24px"
+                      height="24px"
+                      alt={`icone ${navItem.label}`}
+                      src={`${isActive ? navItem.activeIcon : navItem.icon}`}
+                    />
+                  ) : (
+                    <Image
+                      width="24px"
+                      height="24px"
+                      className={`${
+                        !isActive ? navItem.iconClass : navItem.activeIcon
+                      } text-2xl flex`}
+                    />
+                  )}
+                  {windowWidth >= 992 ? (
+                    <span
+                      hidden={!navBarExpended && windowWidth >= 992 ? true : false}
+                      className={`text-sm ml-3 font-bold bg-red-300`}>
+                      {navItem.label}
+                    </span>
+                  ) : (
+                    <span className="text-sm bg-teal-900">{navItem.label}</span>
+                  )}
+                </>
+              );
+            }}
           </NavLink>
         );
       })}

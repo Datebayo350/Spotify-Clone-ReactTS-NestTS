@@ -9,6 +9,8 @@ import {
 import useWindowSizes from '../../hooks/useWindowSize';
 import { usePalette } from 'react-palette';
 import { Button } from 'primereact/button';
+import { ProgressBar } from 'primereact/progressbar';
+        
 import './trackPlayer.css';
 
 const TrackPlayer = () => {
