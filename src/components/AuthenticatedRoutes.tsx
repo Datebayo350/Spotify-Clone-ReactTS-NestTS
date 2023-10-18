@@ -22,11 +22,11 @@ const AuthenticatedRoutes = ({ userIsAuthenticated }: AuthenticationProps): JSX.
         className={`bg-red-500 p-1 
         lg:w-11
         ${windowWidth >= 992 && navBarExpended ? 'main-layout-navExpended' : ''} 
-        h-screen overflow-auto  border-round-bottom-lg`}>
+        h-full overflow-auto  border-round-bottom-lg`}>
         <Outlet />
       </main>
       <footer
-        className="w-full m-auto footer-layout overflow-y-hidden overflow-x-hidden
+        className="w-full m-auto footer-layout absolute
       ">
         <TrackPlayer />
       </footer>

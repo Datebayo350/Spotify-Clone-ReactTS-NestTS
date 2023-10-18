@@ -1,8 +1,13 @@
 .track-player-container {
   position: absolute;
-  bottom: 10px;
-  /* background-color: yellow !important; */
+  bottom: 2.5rem;
+  max-height: 75px;
 }
+
+.track-infos-container {
+  max-width: 80%;
+}
+
 
 .listening-device-source-container {
   color: rgb(30, 215, 96) !important;
@@ -11,12 +16,8 @@
   font-size: 0.8125rem;
 }
 
-.track-infos-container {
-  width: 80% !important;
-}
-
 .tracks-infos-separator {
-  font-size: 0.3rem !important;
+  font-size: 0.2rem !important;
   height: 2px !important;
 }
 
@@ -41,13 +42,13 @@
     width: 100% !important;
   }
 
-  .track-infosBIS  {
-    /* flex-direction: column; */
-  }
-
   .track-player-container {
     position: inherit;
     background-color: #000000 !important;
+  }
+
+  .trackTitle-container {
+    overflow-x: hidden !important;
   }
 
   .listening-device-source-container {

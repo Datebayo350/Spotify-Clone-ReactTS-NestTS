@@ -8,8 +8,8 @@ import {
 } from '../../__slices/ui';
 import useWindowSizes from '../../hooks/useWindowSize';
 import { usePalette } from 'react-palette';
-import './trackPlayer.css';
 import { Button } from 'primereact/button';
+import './trackPlayer.css';
 
 const TrackPlayer = () => {
   const trackPlayerContainerDisplayed = useSelector(selectTrackPlayerContainerDisplayed);
@@ -17,40 +17,52 @@ const TrackPlayer = () => {
   const trackLiked = useSelector(selectTrackLiked);
   const dispatch = useDispatch();
   const { windowWidth } = useWindowSizes();
-  const imageUrl = 'https://i.scdn.co/image/ab67616d00004851a883e26f90ab617c91b90e56';
+  const imageUrl = 'https://i.scdn.co/image/ab67616d00001e02af634982d9b15de3c77f7dd9';
   const { data: trackDominantColors } = usePalette(imageUrl);
 
-  console.log('trackPlayerContainerDisplayed :>> ', trackPlayerContainerDisplayed);
   return (
     <>
       {/* Music player layout */}
       {trackPlayerContainerDisplayed && (
         <div
           style={{ backgroundColor: `${trackDominantColors.vibrant}` }}
-          className="track-player-container border-round-lg w-full p-1 flex justify-content-evenly
+          className="track-player-container border-round-lg w-full px-2 flex justify-content-evenly
           lg:border-noround">
-          <div className="track-infos-container p-1 flex align-items-center">
+          <div className="track-infos-container p-1 flex align-items-center bg-red-100">
             <img
               className="w-3rem h-3rem mx-1 border-round-lg"
               // src="https://i.scdn.co/image/ab67616d00001e02ac29a65e7ffcfa6f9cb0d342"
               // src="https://i.scdn.co/image/ab67616d00004851bfc21a1a5b924ecfb2f0c3c8"
-              src="https://i.scdn.co/image/ab67616d00004851a883e26f90ab617c91b90e56"
+              // src="https://i.scdn.co/image/ab67616d00004851a883e26f90ab617c91b90e56"
+              src="https://i.scdn.co/image/ab67616d00001e02af634982d9b15de3c77f7dd9"
               alt="pochette de l'album"
             />
-            <div className="track-infos ml-1 w-full bg-yellow-500">
-              <div className="track-infosBIS max-w-max flex align-items-center bg-pink-300 ">
-                <div className="trackTitleContainer bg-blue-200">
-                  <p className="track-title m-0 w-full">Time</p>
+            <div className="track-infos ml-1 max-w-full bg-yellow-800 overflow-x-hidden">
+              <div className="track-infosBIS max-w-full flex bg-teal-100 overflow-x-hidden ">
+                <div
+                  className="trackTitle-container spotify-trackTitle__slidein max-h-full flex w-max bg-blue-200
+                lg:inline">
+                  <p
+                    className="track-title m-0 white-space-nowrap text-sm text-white bg-green-100
+                    lg:w-full lg:text-base">
+                    {/* The Music */}
+                    Can You Hear The Music
+                  </p>
 
                   <span
-                    className="tracks-infos-separator align-self-center mt-1 mx-1 pi pi-circle-fill
+                    className="tracks-infos-separator pi pi-circle-fill align-self-center mt-1 mx-1 text-white 
                 lg:hidden"
                   />
-                  <p className="track-artists text-sm m-0 w-full">Hans Zimmer</p>
+                  <p
+                    className="track-artists text-xs m-0  white-space-nowrap bg-indigo-200 text-gray-200
+                  lg:text-sm">
+                    {/* Ludwig  */}
+                    Ludwig Göransson
+                  </p>
                 </div>
-                
+
                 {/** Favorite button managment */}
-                {windowWidth >= 994 && (
+                {windowWidth >= 992 && (
                   <Button
                     onClick={() => dispatch(toggleTrackLiked())}
                     className="button-trackLiked m-auto w-min h-min p-2 bg-blue-500

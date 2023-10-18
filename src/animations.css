@@ -1,0 +1,22 @@
+/* @keyframes duration | timing-function | delay |
+   iteration-count | direction | fill-mode | play-state | name */
+
+@media screen and (max-width: 991px) {
+  /* Animation creation documentation : 
+  - https://blog.hubspot.com/website/css-animation-delay
+  - https://dev.to/rajeshroyal/how-to-add-delay-between-css-keyframe-animation-2jd */
+  .spotify-trackTitle__slidein {
+    animation: spotifyTrackTitleSlideIn linear 5s infinite alternate;
+  }
+}
+
+@keyframes spotifyTrackTitleSlideIn {
+  0%,
+  30% {
+    transform: translateX(0px);
+  }
+  70%,
+  100% {
+    transform: translateX(-120px);
+  }
+}

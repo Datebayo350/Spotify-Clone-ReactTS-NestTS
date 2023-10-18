@@ -25,9 +25,9 @@ main::-webkit-scrollbar-thumb {
 } */
 
 .footer-layout {
-  position: absolute;
-  bottom: 5.8%;
-  background-color: green;
+  /* position: absolute; */
+  /* bottom: 5.8%; */
+  bottom: 1rem;
 }
 
 .content-layout {
@@ -47,8 +47,4 @@ main::-webkit-scrollbar-thumb {
 }
 
 @media screen and (min-width: 992px) {
-  .footer-layout {
-    position: static;
-
-  }
 }

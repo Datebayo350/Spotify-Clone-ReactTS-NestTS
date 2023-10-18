@@ -1,4 +1,6 @@
 import './index.css';
+import './animations.css';
+
 
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
